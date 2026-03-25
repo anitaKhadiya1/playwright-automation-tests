@@ -1,0 +1,33 @@
+{
+  "name": "practice-framewrok",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf \"allure-report/\" && rimraf \"allure-results/\" && rimraf \"playwright-report/\" && rimraf \"test-results/\"",
+    "test-Report": "npm run clean && suppress-exit-code npx playwright test --reporter=line,allure-playwright && allure generate \"./allure-results\" --clean && allure open \"./allure-report\"",
+    "test": "playwright test",
+    "report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "@playwright/test": "^1.52.0",
+    "@types/chai": "^5.2.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.15.21",
+    "allure-commandline": "^2.34.0",
+    "allure-playwright": "^3.6.0",
+    "chai": "^5.2.0",
+    "cross-env": "^7.0.3",
+    "mocha": "^9.2.2",
+    "rimraf": "^4.1.4",
+    "suppress-exit-code": "^3.2.0"
+  },
+  "dependencies": {
+    "tesseract.js": "^6.0.1"
+  }
+}
