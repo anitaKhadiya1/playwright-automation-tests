@@ -11,7 +11,7 @@ test.describe('loginpage', () => {
     await page.goto('/');
 });
 
-test('Verify that a warning message is shown for invalid login credentials', async ({ page }) => {
+test('Verify that a warning message is shown when invalid login credentials are submitted', async ({ page }) => {
   const homePage = new HomePage(page);
   const loginPage = new LoginPage(page);
   let i: number = 1;
@@ -33,7 +33,7 @@ test('Verify that a warning message is shown for invalid login credentials', asy
   expect(warning).toContain(Constants.NOMATCH_WARNING_MESSAGE);
 });
 
-test('Verify that a warning message is shown for an invalid email on the forgotten password page and the user can navigate back to the login page', async ({ page }) => {
+test('Verify forgot-password warning is shown for invalid email and user can return to login', async ({ page }) => {
   const homePage = new HomePage(page);
   const loginPage = new LoginPage(page);
   let i: number = 1;
@@ -64,4 +64,5 @@ test('Verify that a warning message is shown for an invalid email on the forgott
   const isLoginPage = await loginPage.isLoginPageDisplayed();
   expect(isLoginPage).toBeTruthy();
 });
+
 });
